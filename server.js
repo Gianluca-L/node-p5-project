@@ -4,7 +4,7 @@ var express = require("express");
 
 var app = express();
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
@@ -26,6 +26,6 @@ function newConnection(socket) {
   function mouseMessage(receivedData) {
     console.log(receivedData);
 
-    socket.broadcast.emit("mouseBroadcast", receivedData);    
+    socket.broadcast.emit("mouseBroadcast", receivedData);
   }
 }
